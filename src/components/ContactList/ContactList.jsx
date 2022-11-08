@@ -1,31 +1,28 @@
+import { deleteContactData } from 'API/API';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleFilteerConnect } from 'redux/selector';
 
-import PropTypes from 'prop-types';
-
-export const ContactList = ({ onFilterContacts, deleteUser }) => {
+export const ContactList = () => {
+  const contacts = useSelector(handleFilteerConnect);
   
+
+  const dispatch = useDispatch();
+  const handleDeleteUser = id => {
+    dispatch(deleteContactData(id));
+  };
   return (
-      <ul>
-        {onFilterContacts.map(contact => (
-          <li key={contact.id}>
-            <p>{contact.name}</p>
-            <p>{contact.number}</p>
-            <button onClick={() => deleteUser(contact.id)} type="button">
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-    );
+    <ul>
+      {contacts.map(contact => (
+        <li key={contact.id}>
+          <p>{contact.name}</p>
+          <p>{contact.number}</p>
+          <button onClick={() => handleDeleteUser(contact.id)} type="button">
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
   }
 
 
-ContactList.propTypes = {
-  onFilterContacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      number: PropTypes.string,
-      name: PropTypes.string,
-      id: PropTypes.string,
-    })
-  ),
-  deleteUser: PropTypes.func,
-};
