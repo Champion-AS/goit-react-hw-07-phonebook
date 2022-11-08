@@ -1,5 +1,5 @@
-import { deleteContactData } from 'API/API';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteContactData } from 'redux/PhonebookRedax/phonebookThunk';
 import { handleFilteerConnect } from 'redux/selector';
 
 export const ContactList = () => {

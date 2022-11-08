@@ -3,7 +3,8 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContactsData } from 'API/API';
+import { fetchContactsData } from 'redux/PhonebookRedax/phonebookThunk';
+
 
 export const App = () => {
   const dispatch = useDispatch();

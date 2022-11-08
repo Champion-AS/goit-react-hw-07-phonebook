@@ -1,7 +1,7 @@
-import { addContactData } from 'API/API';
-import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addContactData } from 'redux/PhonebookRedax/phonebookThunk';
 
 export const Phonebook = () => {
   const dispatch = useDispatch();
@@ -60,6 +60,3 @@ export const Phonebook = () => {
   );
 };
 
-Phonebook.propTypes = {
-  handleAddContact: PropTypes.func,
-};

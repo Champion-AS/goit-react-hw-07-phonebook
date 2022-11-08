@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addContactData, deleteContactData, fetchContactsData } from 'API/API';
+import {  fetchContactsData,  deleteContactData, addContactData,} from './phonebookThunk';
+
 
 const Status = {
   init: 'INIT',
